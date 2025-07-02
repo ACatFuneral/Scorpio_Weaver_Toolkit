@@ -7,8 +7,7 @@
 <div align="center">
 
 <!-- 在这里放一个你酷炫的 Logo -->
-<img src="[https://raw.githubusercontent.com/Tsubaki-1/images/main/pixel-art-kitsune-girl-in-a-shrine_882954-2062.avif](![image](https://github.com/7561ec5a-6efa-4d38-88d6-1a1e393505dd)
-)" width="200" alt="Project Logo" />
+<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/项目.png" width="200" alt="Project Logo" />
 
 ### ✨ 一键完成Ren'Py游戏汉化前的所有准备工作 ✨
 
