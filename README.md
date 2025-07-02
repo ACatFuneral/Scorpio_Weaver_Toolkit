@@ -81,7 +81,7 @@
     ```bash
     python scripts/Scorpio_Weaver.py
     ```
-     **注：**scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名即可，比如：777.py。
+    注：scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名，比如：777.py。
     
     看到提示后输入 `yes` 回车，然后就可以泡杯茶，静观其变了。
     
@@ -104,7 +104,7 @@
     ```bash
     python scripts/Glossary_Forge.py
     ```
-    **注：**同上，依然是可改可删的。
+    注：同上，依然是可改可删的。
     <div align="center">
       <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>
