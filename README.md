@@ -1,9 +1,13 @@
-# ⚔️ 本地化三神器 (Localization Trinity)
+<div align="center">
+
+# ⚔️ Scorpio Weaver Toolkit (Localization Trinity)
+
+</div>
 
 <div align="center">
 
 <!-- 在这里放一个你酷炫的 Logo -->
-<img src="https://raw.githubusercontent.com/Tsubaki-1/images/main/pixel-art-kitsune-girl-in-a-shrine_882954-2062.avif" width="200" alt="Project Logo" />
+<img src="[https://raw.githubusercontent.com/Tsubaki-1/images/main/pixel-art-kitsune-girl-in-a-shrine_882954-2062.avif](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/blob/main/images/%E9%A1%B9%E7%9B%AE.png?raw=true)" width="200" alt="Project Logo" />
 
 ### ✨ 一键完成Ren'Py游戏汉化前的所有准备工作 ✨
 
