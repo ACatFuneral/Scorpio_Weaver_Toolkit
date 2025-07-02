@@ -7,7 +7,7 @@
 <div align="center">
 
 <!-- 在这里放一个你酷炫的 Logo -->
-<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/Scorpio.png" width="350" alt="Project Logo" />
+<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/Scorpio.png" width="450" alt="Project Logo" />
 
 ### ✨ 一键完成Ren'Py游戏汉化前的所有准备工作 ✨
 
@@ -81,9 +81,9 @@
     看到提示后输入 `yes` 回车，然后就可以泡杯茶，静观其变了。
     
     <div align="center">
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="450" alt="运行脚本" />
+      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
       <br><em>然后就泡杯茶，看着脚本为你自动完成所有繁重的工作吧！</em><br>
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本.jpg" width="450" alt="完成脚本" />
+      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本.jpg" width="550" alt="完成脚本" />
     </div>
 
 > **注意：** 这一步不光要求速度，道德审核也很严重。有少量报错是正常的，毕竟API有波动。如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
@@ -99,7 +99,7 @@
     python scripts/Glossary_Forge.py
     ```
     <div align="center">
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="450" alt="运行术语表" />
+      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>
 3.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
