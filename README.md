@@ -1,3 +1,4 @@
+[![Latest Release](https://img.shields.io/github/v/release/ACatFuneral/Scorpio_Weaver_Toolkit)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest)
 <div align="center">
 
 # ⚔️ Scorpio Weaver Toolkit (Localization Trinity)
