@@ -7,7 +7,7 @@
 <div align="center">
 
 <!-- 在这里放一个你酷炫的 Logo -->
-<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/项目.png" width="200" alt="Project Logo" />
+<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/Scorpio.png" width="200" alt="Project Logo" />
 
 
 ### ✨ 一键完成Ren'Py游戏汉化前的所有准备工作 ✨
