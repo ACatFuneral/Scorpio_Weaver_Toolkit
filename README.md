@@ -104,11 +104,13 @@
     ```bash
     python scripts/Glossary_Forge.py
     ```
-    注：同上，依然是可改可删的。
+    注：同上，依然是可改可删的。  
+    
     <div align="center">
       <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>
-3.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+    
+4.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
 ---
 
