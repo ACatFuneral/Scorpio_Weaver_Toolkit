@@ -82,6 +82,7 @@
     python scripts/Scorpio_Weaver.py
     ```
      **注：**scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名即可，比如：777.py。
+    
     看到提示后输入 `yes` 回车，然后就可以泡杯茶，静观其变了。
     
     <div align="center">
