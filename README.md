@@ -81,6 +81,7 @@
     ```bash
     python scripts/Scorpio_Weaver.py
     ```
+     **注：**scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名即可，比如：777.py。
     看到提示后输入 `yes` 回车，然后就可以泡杯茶，静观其变了。
     
     <div align="center">
@@ -102,6 +103,7 @@
     ```bash
     python scripts/Glossary_Forge.py
     ```
+    **注：**同上，依然是可改可删的。
     <div align="center">
       <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>
@@ -141,7 +143,7 @@
 一切就绪！现在你可以：
 
 1.  打开 Ren'Py Launcher，点击 **"Generate Translations"** (生成翻译)。
-2.  把生成的待翻译文件 (`game/tl/Chinese` 目录下) 扔进 **Lingua**, **AiNee** 或你喜欢的任何翻译工具。
+2.  把生成的待翻译文件 (`game/tl/Chinese` 目录下) 扔进 **Lingua**, **AiNee** 或任何你喜欢的翻译工具。
 3.  **导入你刚刚制作的 `glossary.xlsx` 术语表**，开始你的翻译之旅！
 
 ---
