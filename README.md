@@ -9,6 +9,7 @@
 <!-- 在这里放一个你酷炫的 Logo -->
 <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/项目.png" width="200" alt="Project Logo" />
 
+
 ### ✨ 一键完成Ren'Py游戏汉化前的所有准备工作 ✨
 
 **还在手动打`_()`？还在为名词不统一抓狂？还在被“口口口”字体劝退？**  
