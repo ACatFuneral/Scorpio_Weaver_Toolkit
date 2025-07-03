@@ -110,7 +110,7 @@
  2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。
     *   **【警告！】** 你**永远**只需要修改 `config.json` 这一个文件来调整配置。脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
  3.  **修改示例**:
-     ```json
+     ``json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
       "BASE_URL": "https://api.oneapi.run/v1",
