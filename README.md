@@ -99,8 +99,8 @@
           "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
         }
 
-   **【重要、必读】**:
-    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！
+   **【重要、必读】**:  
+    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
     -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。  
  4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
 
@@ -160,22 +160,21 @@
 
 ### 第五步：替换字体 (施展终极魔法！`z_font_hack.rpy`)  
 
-有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
-**注：如果作者很正常，且没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
+> 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
+> **注：如果作者很正常，且没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
 
 1.  **创建目录**: 在 `game/` 目录下，创建 `tl/Chinese/fonts` 文件夹。（`Chinese`可替换为你自己的翻译语言名）
 2.  **放入字体**: 把你准备好的中文字体文件放进去。
 3.  **部署脚本**: 在 `game/` 目录下，新建 `z_font_hack.rpy` 文件，把项目中的模板代码复制进去并按需修改。
-    ```python
-    # z_font_hack.rpy 示例
-    init -999 python:
-        font_replacement_map = {
-            "DejaVuSans.ttf": "tl/Chinese/fonts/your_font.ttf", # 左边是原字体名，右边是你的中文字体路径
-            "Action_Man.ttf": "tl/Chinese/fonts/your_font.ttf"
-            # 把你发现的所有游戏内英文字体都加到这个列表里
-        }
-        config.font_replacement_map.update(font_replacement_map)
-    ```
+
+        # z_font_hack.rpy 示例
+        init -999 python:
+            font_replacement_map = {
+                "DejaVuSans.ttf": "tl/Chinese/fonts/your_font.ttf", # 左边是原字体名，右边是你的中文字体路径
+                "Action_Man.ttf": "tl/Chinese/fonts/your_font.ttf"
+                # 把你发现的所有游戏内英文字体都加到这个列表里
+            }
+            config.font_replacement_map.update(font_replacement_map)
 
 ---
 
