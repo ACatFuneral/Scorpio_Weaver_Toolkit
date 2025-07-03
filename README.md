@@ -129,8 +129,7 @@
    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。
    -   `EXCLUDE_FILES` 是一个**排除列表**，用于跳过不需要处理的文件。你可以手动添加或删减里面的项，只需保证是 `"文件名"` 的格式，并用 `,` 分隔即可。
- 4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！  
-     *   配置表中的忽略项是可以自己手动添加或删减的。      
+ 4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！     
 
 ---
 
