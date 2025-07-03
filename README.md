@@ -64,16 +64,13 @@
 *   **【里程碑式更新】实现配置与代码完全分离！**
     *   所有用户配置项已移至独立的 `config.json` 文件。
     *   **从此，更新核心脚本再也无需重新填写你的API密钥和路径！** 只需保留你自己的 `config.json`，即可无缝使用新版脚本。
-*   **首次运行优化**: 如果 `config.json` 不存在，程序会自动为你创建一个标准模板，并提示你填写，防止误操作。
-
-### v5.3 - 智能诊断版 (2024-07-03)
+*   **【体验统一】`Glossary_Forge.py` 现已支持读取 `config.json`！** 整个工具集共享同一份配置，无需在多个文件中重复设置路径。
+*   **首次运行优化**: 如果 `config.json` 不存在，程序会自动为你创建一个标准模板，并提示你填写，防止误操作。  
 *   **核心升级：引入智能诊断机制！**
     *   现在能精准识别并报告因 **AI模型输出超限 (`finish_reason: 'length'`)** 导致的失败。
 *   **安全性增强：采用原子化文件写入！**
     *   所有文件修改现在都会先写入一个唯一的 `.tmp` 临时文件，成功后再重命名，杜绝文件损坏风险。
-*   **代码结构优化**: 重构了网络请求逻辑，确保全局只使用一个 `requests.Session` 对象。
-
-### v5.2 - 终极稳定版 (2024-07-03)
+*   **代码结构优化**: 重构了网络请求逻辑，确保全局只使用一个 `requests.Session` 对象。  
 *   **网络核心重构**: 引入企业级网络请求策略（连接池、指数退避重试），大幅提升稳定性。
 *   **并发性能优化**: 新增并发控制参数及线程安全锁。
 *   **用户体验增强**: 集成 `tqdm` 进度条，优化最终报告。
@@ -90,12 +87,15 @@
 ---
 
 ### 第一步：配置你的“遥控器” (`config.json`)
-> 这是整个流程的核心，**只需要做一次**！以后无论脚本怎么更新，你的配置都会被保留。
-> *   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py` 脚本放在同一个文件夹里！
+> 这是整个流程的核心，**只需要做一次**！以后无论脚本怎么更新，你的配置都会被保留。    
+
+*   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py`、`Glossary_Forge.py` 脚本放在同一个文件夹里！
 
 1.  **找到配置文件**: 下载并解压最新的工具包后，在 `scripts` 文件夹里找到 `config.json` 文件。
     *   如果找不到，直接运行一次 `scripts/Scorpio_Weaver.py`，它会自动为你创建一个。
-2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`，根据说明修改成你自己的信息。
+2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。
+    *   **【警告！】** 你**永远**只需要修改 `config.json` 这一个文件来调整配置。脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
+3.  **修改示例**:
     ```json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
@@ -104,16 +104,16 @@
       "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
     }
     ```
-    **【重要】**:
-    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`,`GAME_DIRECTORY` 是必填项！
+    **【重要、必读】**:
+    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！
     -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。
-3.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
+4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
 
 ---
 
-### 第二步：运行三大核心工具
+### 第二步：自动打标，批量预处理 (`Scorpio_Weaver.py`) 
 
-#### 自动打标，批量预处理 (`Scorpio_Weaver.py`)  
+#### 这是最核心的工具，用于批量给代码添加翻译标记。
 
 **运行脚本**: 在项目根目录打开终端，执行：
     ```bash
@@ -123,7 +123,7 @@
   <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
   </div>     
   
-   注：scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名，比如：777.py。
+   注：scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，但要确保和config.json配置表在同一目录，你可以改成任意方便你操作的非中文文件名，比如：777.py。
     
    看到提示后输入 `yes` 回车。  
    
@@ -142,17 +142,16 @@
 > 翻译的灵魂在于统一。    
 > 这个工具能帮你把所有角色名都抓出来，做成一个Excel术语表，确保“艾米丽”不会被翻译成“爱美丽”。
 
-1.  **配置脚本**:  这个脚本的配置项很少，你可以直接在脚本顶部的【配置区】修改。  
-    打开 `scripts/Glossary_Forge.py`，同样修改 `GAME_DIRECTORY` 指向你的 `game` 目录。
-2.  **运行脚本**:  在项目根目录打开终端。
+  **运行脚本**:  在项目根目录打开终端。
     ```bash
     python scripts/Glossary_Forge.py
-    ```
-    注：同上，依然是可改可删的。  
+    ```  
+   它会自动读取 `config.json` 中的游戏路径，运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。  
+   注：同上，依然是可改可删的，依然要确保和config.json配置表在同一目录。      
     
-    <div align="center">
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
-    </div>
+   <div align="center">
+   <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
+   </div>
     
 4.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
