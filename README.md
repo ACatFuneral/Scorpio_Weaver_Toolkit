@@ -111,19 +111,24 @@
      *   **【警告！】**
      -   你**永远**只需要修改 `config.json` 这一个文件来调整配置。
      -   脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
- 3.  **修改示例**:  
+     -   PS:配置表中的忽略项`EXCLUDE_FILES`是可以自己手动添加或删减的。
+ 3.  **示例**:  
    ```json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
       "BASE_URL": "https://api.oneapi.run/v1",
       "MODEL_NAME": "gemini-1.5-pro-latest",
       "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
+      "EXCLUDE_FILES": [
+        "gui.rpy",
+        "options.rpy"(可删，也可添加，用`,`分隔，保持格式一致)
     }
    ```
    **【重要、必读】**:      
    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。  
- 4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
+ 4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！  
+     *   配置表中的忽略项是可以自己手动添加或删减的。      
 
 ---
 
