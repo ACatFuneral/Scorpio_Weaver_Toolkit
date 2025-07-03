@@ -91,12 +91,12 @@
 
 *   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py`、`Glossary_Forge.py` 脚本放在同一个文件夹里！
 
-1.  **找到配置文件**: 下载并解压最新的工具包后，在 `scripts` 文件夹里找到 `config.json` 文件。
+ 1.  **找到配置文件**: 下载并解压最新的工具包后，在 `scripts` 文件夹里找到 `config.json` 文件。
     *   如果找不到，直接运行一次 `scripts/Scorpio_Weaver.py`，它会自动为你创建一个。
-2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。
+ 2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。
     *   **【警告！】** 你**永远**只需要修改 `config.json` 这一个文件来调整配置。脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
-3.  **修改示例**:
-    ```json
+ 3.  **修改示例**:
+     ```json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
       "BASE_URL": "https://api.oneapi.run/v1",
@@ -104,10 +104,10 @@
       "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
     }
     ```
-    **【重要、必读】**:
+   **【重要、必读】**:
     -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！
-    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。
-4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
+    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。  
+ 4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
 
 ---
 
@@ -115,26 +115,26 @@
 
 #### 这是最核心的工具，用于批量给代码添加翻译标记。
 
-**运行脚本**: 在项目根目录打开终端，执行：
+ **运行脚本**: 在项目根目录打开终端，执行：
     ```bash
     python scripts/Scorpio_Weaver.py
-    ```
-  <div align="center">
-  <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
-  </div>     
+    ```  
+   <div align="center">
+   <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
+   </div>  
   
    注：scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，但要确保和config.json配置表在同一目录，你可以改成任意方便你操作的非中文文件名，比如：777.py。
     
    看到提示后输入 `yes` 回车。  
    
-  <div align="center">
-  <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本.jpg" width="550" alt="完成脚本" />
-  </div>
+   <div align="center">
+   <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本.jpg" width="550" alt="完成脚本" />
+   </div>
   
    然后就可以泡杯茶，抽支烟，看会剧，等待脚本为你自动完成所有繁重的工作吧！    
 
-**注意：** 这一步不光要求速度，道德审核也很严重。有少量报错是正常的，毕竟API有波动。  
-如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
+ **注意：** 这一步不光要求速度，道德审核也很严重。有少量报错是正常的，毕竟API有波动。  
+ 如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
 
 ---
 
