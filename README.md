@@ -112,8 +112,8 @@
      *   **【警告！】**
      -   你**永远**只需要修改 `config.json` 这一个文件来调整配置。
      -   脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**  
- 3.  **示例**:  
-     ```json
+3.  **修改示例**:
+    ```json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
       "BASE_URL": "https://api.oneapi.run/v1",
@@ -125,7 +125,7 @@
       ]
     }
     ```
-   **【重要、必读】**:      
+   **【重要、必读】**:    
    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。
    -   `EXCLUDE_FILES` 是一个**排除列表**，用于跳过不需要处理的文件。你可以手动添加或删减里面的项，只需保证是 `"文件名"` 的格式，并用 `,` 分隔即可。
