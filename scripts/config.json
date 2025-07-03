@@ -1,0 +1,16 @@
+{
+  "API_KEY": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "BASE_URL": "https://api.oneapi.run/v1",
+  "MODEL_NAME": "gemini-1.5-pro-latest",
+  "GAME_DIRECTORY": "G:\\你的游戏路径\\game",
+  "OVERWRITE_FILES": false,
+  "MAX_FILE_SIZE_KB": 500,
+  "EXCLUDE_FILES": [
+    "gui.rpy",
+    "options.rpy",
+    "screens.rpy"
+  ],
+  "MAX_RETRIES": 5,
+  "TIMEOUT": 300,
+  "CONCURRENT_LIMIT": 5
+}
