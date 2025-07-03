@@ -3,11 +3,12 @@
 # -*- coding: utf-8 -*-
 
 # ==============================================================================
-#  术语表铸造熔炉 v2.1 - 混合动力版
+#  术语表铸造熔炉 v2.4 - 究极飞升版
 #  功能：
-#    1. 优先从 config.json 读取游戏路径，实现与主工具集联动。
-#    2. 若 config.json 无效，则自动切换使用脚本内配置的路径，可独立运行。
-#    3. 双核搜索，同时扫描带_()和不带_()的Character定义。
+#    1. 混合动力模式：可独立运行，也可与主工具集联动。
+#    2. 究极兼容搜索：兼容 Character/DynamicCharacter、单/双引号、
+#       带附加参数的定义，并能智能排除变量名。
+#    3. 全文件扫描：同时扫描 .rpy 和 .new.rpy 文件。
 # ==============================================================================
 import os
 import re
@@ -63,7 +64,7 @@ def main():
         return
 
     print("\n" + "="*60)
-    print("  术语表铸造机 v2.1 - 混合动力版  ")
+    print("  术语表铸造机 v2.4 - 究极飞升版  ")
     print("="*60)
 
     game_directory = load_game_directory_from_config()
@@ -80,29 +81,41 @@ def main():
 
     print(f"扫描路径: {game_directory}")
 
-    # 双核搜索正则表达式
-    char_pattern_marked = re.compile(r'Character\s*\(\s*_\(\s*"([^"]+)"\s*\)\s*\)')
-    char_pattern_unmarked = re.compile(r'define\s+\w+\s*=\s*Character\s*\(\s*"([^"]+)"\s*\)')
+    # 【核心升级】究极飞升版正则表达式
+    # 匹配 (Dynamic)Character, 兼容单/双引号, 排除变量[...], 排除name=None
+    # 解释:
+    # (?:DynamicCharacter|Character) - 匹配 "DynamicCharacter" 或 "Character"
+    # \s*\(\s* - 匹配左括号和任意空格
+    # (?:_\(\s*)? - 可选地匹配 _( 和空格 (用于已处理的)
+    # (["']) - 捕获开始的引号 (单引号或双引号)
+    # ((?:(?!\1).)*?) - 捕获引号内的所有内容，直到遇到与之匹配的结束引号
+    # \1 - 匹配之前捕获的同类型引号
+    # (?!\s*\[) - 负向前瞻，确保捕获的内容不是以 [ 开头的变量
+    # (?!\s*None) - 负向前瞻，确保捕获的内容不是 None
+    pattern = re.compile(r'(?:DynamicCharacter|Character)\s*\(\s*(?:_\(\s*)?(["\'])((?:(?!\1).)*?)\1(?!\s*\[)(?!\s*None)')
     
     found_names = set()
 
-    print("正在扫描 .rpy 文件并提取角色名...")
+    print("正在扫描 .rpy 和 .new.rpy 文件并提取角色名...")
     for root, _, files in os.walk(game_directory):
         for file in files:
-            if file.endswith('.rpy'):
+            if file.endswith(('.rpy', '.new.rpy')):
                 file_path = os.path.join(root, file)
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
-                        matches_marked = char_pattern_marked.findall(content)
-                        for name in matches_marked: found_names.add(name)
-                        matches_unmarked = char_pattern_unmarked.findall(content)
-                        for name in matches_unmarked: found_names.add(name)
+                        matches = pattern.findall(content)
+                        for match in matches:
+                            # match 是一个元组，例如 ('"', 'Eileen')，我们需要第二个元素
+                            name = match[1]
+                            # 再次确认不是变量
+                            if not (name.startswith('[') and name.endswith(']')):
+                                found_names.add(name)
                 except Exception as e:
                     print(f"  ! 读取文件 {file} 时出错: {e}")
 
     if not found_names:
-        print("\n未找到任何 Character 定义的角色名。")
+        print("\n未找到任何符合条件的角色名。")
         input("\n按Enter键退出...")
         return
         
