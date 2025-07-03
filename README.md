@@ -119,8 +119,7 @@
       "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
     }
    ```
-   **【重要、必读】**:  
-    
+   **【重要、必读】**:      
    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
    -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。  
  4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！
