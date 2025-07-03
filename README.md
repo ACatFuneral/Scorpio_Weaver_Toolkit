@@ -110,55 +110,22 @@
 
 ### 第二步：运行三大核心工具
 
-#### 自动打标 (`Scorpio_Weaver.py`)
-**运行脚本**: 在项目根目录打开终端，执行：
-    ```bash
-    python scripts/Scorpio_Weaver.py
-    ```
-    
-   注：scripts/Scorpio_Weaver.py文件名是可改的，路径是可改可删的，你可以改成任意方便你操作的非中文文件名，比如：777.py。
-    
-   看到提示后输入 `yes` 回车。
-    <div align="center">
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本.jpg" width="550" alt="完成脚本" />
-    </div>
-    然后就可以泡杯茶，抽支烟，看会剧，等待脚本为你自动完成所有繁重的工作吧！  
+#### 1. 自动打标 (`Scorpio_Weaver.py`)
+在项目根目录打开终端，然后输入并执行命令： `python scripts/Scorpio_Weaver.py`
 
-**注意：** 这一步不光要求速度，道德审核也很严重。有少量报错是正常的，毕竟API有波动。如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
+看到提示后输入 `yes` 回车，然后就可以泡杯茶，静观其变了。
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
+</div>
 
----
-
-### 第三步：铸造术语 (灵魂熔炉启动！)
-> 翻译的灵魂在于统一。  
+#### 2. 铸造术语 (`Glossary_Forge.py`)
 > 这个工具能帮你把所有角色名都抓出来，做成一个Excel术语表，确保“艾米丽”不会被翻译成“爱美丽”。
+1.  **配置**: 它的配置项很少，你可以直接在脚本顶部修改。
+2.  **运行**: `python scripts/Glossary_Forge.py`
+3.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
-1.  **配置脚本**: 打开 `scripts/Glossary_Forge.py`，同样修改 `GAME_DIRECTORY` 指向你的 `game` 目录。
-2.  **运行脚本**:
-    ```bash
-    python scripts/Glossary_Forge.py
-    ```
-    注：同上，依然是可改可删的。  
-    
-    <div align="center">
-      <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
-    </div>
-    
-4.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
-
----
-
-### 第四步：审查与合并 (过河拆桥！)
-⚠️ **这是保证质量的关键环节，不可跳过！**
-
-1.  **对比**: 使用 Beyond Compare 等工具，仔细对比原始 `.rpy` 和新生成的 `.new.rpy` 文件。
-2.  **确认**: 确认 AI 的修改无误后，删除原文件，并将 `.new.rpy` 重命名，去掉 `.new` 后缀。
-3.  **清理**: **所有文件都确认完毕后，把没用的 `.new.rpy` 备份全部删除！**
-
----
-
-### 第五步：替换字体 (施展终极魔法！)
-> 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！
-
+#### 3. 替换字体 (施展 `z_font_hack.rpy` 魔法)
+> 有时候会遇到作者在文本里硬编码字体，这时我们就需要魔法卷轴来帮忙了！
 1.  **创建目录**: 在 `game/` 目录下，创建 `tl/Chinese/fonts` 文件夹。（`Chinese`可替换为你自己的翻译语言名）
 2.  **放入字体**: 把你准备好的中文字体文件放进去。
 3.  **部署脚本**: 在 `game/` 目录下，新建 `z_font_hack.rpy` 文件，把项目中的模板代码复制进去并按需修改。
@@ -168,14 +135,22 @@
         font_replacement_map = {
             "DejaVuSans.ttf": "tl/Chinese/fonts/your_font.ttf", # 左边是原字体名，右边是你的中文字体路径
             "Action_Man.ttf": "tl/Chinese/fonts/your_font.ttf"
-            # 把你发现的所有游戏内英文字体都加到这个列表里
         }
         config.font_replacement_map.update(font_replacement_map)
     ```
 
 ---
 
-### 第六步：生成翻译 & 总攻！
+### 第三步：审查与合并 (过河拆桥！)
+⚠️ **这是保证质量的关键环节，不可跳过！**
+
+1.  **对比**: 使用 Beyond Compare 等工具，仔细对比原始 `.rpy` 和新生成的 `.new.rpy` 文件。
+2.  **确认**: 确认 AI 的修改无误后，删除原文件，并将 `.new.rpy` 重命名，去掉 `.new` 后缀。
+3.  **清理**: **所有文件都确认完毕后，把没用的 `.new.rpy` 备份全部删除！**
+
+---
+
+### 第四步：生成翻译 & 总攻！
 一切就绪！现在你可以：
 
 1.  打开 Ren'Py Launcher，点击 **"Generate Translations"** (生成翻译)。
@@ -191,40 +166,17 @@
 1.  用 **VS Code** 打开你的游戏 `game` 文件夹。
 2.  按下 `Ctrl + Shift + F`，开启全局搜索。
 3.  **点击 `.*` 图标，启用正则表达式模式。**
-4.  输入下面的“索敌咒语”，精准定位需要翻译的文本。
 
 #### 第二步：吟唱【你的专属正则咒语库】
-*   **咒语一：查找 `renpy.input()` 中的提示文本**
-    ```regex
-    renpy\.input\s*\(\s*"([^"]+)"
-    ```
-*   **咒语二：查找 `Character()` 定义中的角色名**
-    ```regex
-    Character\s*\(\s*"([^"]+)"
-    ```
-*   **咒语三：查找 `show text` 显示的文本**
-    ```regex
-    show\s+text\s+"([^"]+)"
-    ```
-*   **咒语四：查找被赋值的长字符串 (通常是描述或UI文本)**
-    ```regex
-    \$\s*\w+\s*=\s*"([^"]{10,})"
-    ```
-*   **咒语五：查找通用函数调用中的字符串参数 (较宽泛，需甄别)**
-    ```regex
-    \w+\s*\(\s*[^)]*\b"([^"/]+?)"
-    ```
+*   **咒语一：查找 `renpy.input()` 中的提示文本**: `renpy\.input\s*\(\s*"([^"]+)"`
+*   **咒语二：查找 `Character()` 定义中的角色名**: `Character\s*\(\s*"([^"]+)"`
+*   **咒语三：查找 `text` / `show text` 显示的文本**: `(?<=text\s|show\s+text\s)"([^"]+)"`
+*   **咒语四：查找被赋值的长字符串**: `\$\s*\w+\s*=\s*"([^"]{10,})"`
 
 #### 第三步：手动“点穴” (应用 `_()`)
 VS Code的搜索结果会像清单一样列出，点击即可跳转。你的任务，就是用智慧判断是否需要翻译，然后手动“附魔”。
 
-*   **方法一：首尾包抄**
-    1.  光标定位到字符串的第一个引号 `"` 前。
-    2.  输入 `_(`。
-    3.  光标移动到字符串最后一个引号 `"` 后。
-    4.  输入 `)`。
-
-*   **方法二：“选中环绕” (高手推荐)**
+*   **方法：“选中环绕” (高手推荐)**
     1.  用鼠标双击字符串（如 `"Fuck!"`），VS Code会自动选中它（包括引号）。
     2.  直接按下 `(` 左括号键。
     3.  奇迹发生！VS Code会自动用一对 `()` 把你选中的内容包起来。
