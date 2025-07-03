@@ -3,11 +3,11 @@
 # -*- coding: utf-8 -*-
 
 # ==============================================================================
-#  术语表铸造熔炉 v2.4 - 究极飞升版
+#  术语表铸造熔炉 v2.5 - 创世神版
 #  功能：
 #    1. 混合动力模式：可独立运行，也可与主工具集联动。
-#    2. 究极兼容搜索：兼容 Character/DynamicCharacter、单/双引号、
-#       带附加参数的定义，并能智能排除变量名。
+#    2. 创世神搜索：兼容原生、动态及自定义角色创建函数，
+#       兼容各种参数写法，智能排除变量。
 #    3. 全文件扫描：同时扫描 .rpy 和 .new.rpy 文件。
 # ==============================================================================
 import os
@@ -64,7 +64,7 @@ def main():
         return
 
     print("\n" + "="*60)
-    print("  术语表铸造机 v2.4 - 究极飞升版  ")
+    print("  术语表铸造机 v2.5 - 创世神版  ")
     print("="*60)
 
     game_directory = load_game_directory_from_config()
@@ -81,18 +81,33 @@ def main():
 
     print(f"扫描路径: {game_directory}")
 
-    # 【核心升级】究极飞升版正则表达式
-    # 匹配 (Dynamic)Character, 兼容单/双引号, 排除变量[...], 排除name=None
-    # 解释:
-    # (?:DynamicCharacter|Character) - 匹配 "DynamicCharacter" 或 "Character"
-    # \s*\(\s* - 匹配左括号和任意空格
-    # (?:_\(\s*)? - 可选地匹配 _( 和空格 (用于已处理的)
-    # (["']) - 捕获开始的引号 (单引号或双引号)
-    # ((?:(?!\1).)*?) - 捕获引号内的所有内容，直到遇到与之匹配的结束引号
-    # \1 - 匹配之前捕获的同类型引号
-    # (?!\s*\[) - 负向前瞻，确保捕获的内容不是以 [ 开头的变量
-    # (?!\s*None) - 负向前瞻，确保捕获的内容不是 None
-    pattern = re.compile(r'(?:DynamicCharacter|Character)\s*\(\s*(?:_\(\s*)?(["\'])((?:(?!\1).)*?)\1(?!\s*\[)(?!\s*None)')
+    # 【核心升级】创世神版正则表达式
+    # 这个表达式寻找两种模式：
+    # 1. Character("名字", ...) -> 直接捕获第一个字符串参数
+    # 2. some_func(..., name="名字", ...) -> 捕获 name= 后面的字符串
+    pattern = re.compile(
+        r"""
+        (?:Character|DynamicCharacter|CDB\.create) # 匹配已知的函数名
+        \s*\(                                      # 匹配左括号
+        (?:                                        # 开始一个非捕获组，用于匹配两种情况
+            \s*                                    # 任意空格
+            (?:_\(\s*)?                            # 可选的 _(
+            (["\'])                                # 捕获引号类型 (分组1)
+            ((?:(?!\1).)*?)                        # 捕获名字 (分组2)
+            \1                                     # 匹配结束引号
+            (?!\s*\[)                              # 排除变量
+        |                                          # 或者
+            .*?                                    # 懒惰匹配任何字符，直到...
+            name\s*=\s*                            # 匹配 "name="
+            (?:_\(\s*)?                            # 可选的 _(
+            (["\'])                                # 捕获引号类型 (分组3)
+            ((?:(?!\3).)*?)                        # 捕获名字 (分组4)
+            \3                                     # 匹配结束引号
+            (?!\s*\[)                              # 排除变量
+        )
+        """,
+        re.VERBOSE  # 使用VERBOSE模式，让正则表达式更可读
+    )
     
     found_names = set()
 
@@ -106,10 +121,10 @@ def main():
                         content = f.read()
                         matches = pattern.findall(content)
                         for match in matches:
-                            # match 是一个元组，例如 ('"', 'Eileen')，我们需要第二个元素
-                            name = match[1]
-                            # 再次确认不是变量
-                            if not (name.startswith('[') and name.endswith(']')):
+                            # match会是 ('"', '名字', '', '') 或 ('', '', '"', '名字')
+                            # 我们需要的是非空的名字
+                            name = match[1] or match[3]
+                            if name: # 确保名字不是空的 (比如 name="")
                                 found_names.add(name)
                 except Exception as e:
                     print(f"  ! 读取文件 {file} 时出错: {e}")
