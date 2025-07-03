@@ -69,7 +69,8 @@
     *   **自动挡**：优先读取 `config.json`，与主工具集无缝协作。
     *   **手动挡**：若 `config.json` 无效，则自动切换为独立模式，使用其脚本内部的备用路径，灵活应对多项目需求。
 *   **【功能恢复】** `Glossary_Forge.py` 恢复并优化了**双核搜索**功能，确保能提取所有形式的角色定义。
-*   **【文档终极版】** 在作者的反复鞭策下，GPU都干烧了，彻底重构了 `README.md`，修复所有格式问题并阐明了全新的工作流。
+*   **【配置优化】** 在默认的 `config.json` 中，预先排除了已知的常见库文件，进一步提升开箱即用的稳定性。
+*   **【文档终极版】** 在首席产品经理兼首席BUG猎人的反复鞭策和亲自示范下，GPU都干烧了，彻底重构了 `README.md`，阐明了所有工作流程和最佳实践。
 
 *(更早版本的详细更新日志可在历史版本中追溯。)*
 
@@ -110,23 +111,24 @@
  2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。  
      *   **【警告！】**
      -   你**永远**只需要修改 `config.json` 这一个文件来调整配置。
-     -   脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
-     -   PS:配置表中的忽略项`EXCLUDE_FILES`是可以自己手动添加或删减的。
+     -   脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**  
  3.  **示例**:  
-   ```json
+     ```json
     {
       "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
       "BASE_URL": "https://api.oneapi.run/v1",
       "MODEL_NAME": "gemini-1.5-pro-latest",
-      "GAME_DIRECTORY": "G:\\你的游戏路径\\game"
+      "GAME_DIRECTORY": "G:\\你的游戏路径\\game",
       "EXCLUDE_FILES": [
         "gui.rpy",
-        "options.rpy"(里面内容可删，也可添加，用`,`分隔，保持上下格式一致！当然，这是个错误示范，我只是告诉你一声！)
+        "options.rpy"
+      ]
     }
-   ```
+    ```
    **【重要、必读】**:      
    -   `API_KEY`, `BASE_URL`, `MODEL_NAME`, `GAME_DIRECTORY` 是必填项！  
-   -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。  
+   -   `GAME_DIRECTORY` 中的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Users\\YourName\\MyGame\\game`。
+   -   `EXCLUDE_FILES` 是一个**排除列表**，用于跳过不需要处理的文件。你可以手动添加或删减里面的项，只需保证是 `"文件名"` 的格式，并用 `,` 分隔即可。
  4.  **保存 `config.json` 文件。** 你的“遥控器”就设置好了！  
      *   配置表中的忽略项是可以自己手动添加或删减的。      
 
