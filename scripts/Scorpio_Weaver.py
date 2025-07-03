@@ -21,17 +21,11 @@ from concurrent.futures import ThreadPoolExecutor
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import重试
 
-# --- v5.4 核心：不再有配置区，所有配置来自 config.json ---
-
-# 配置日志系统
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
 def load_config():
-    """加载或创建配置文件"""
-    # 配置文件与脚本在同一目录
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-    
     default_config = {
         "API_KEY": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "BASE_URL": "https://api.oneapi.run/v1",
@@ -44,7 +38,6 @@ def load_config():
         "TIMEOUT": 300,
         "CONCURRENT_LIMIT": 5
     }
-
     if not os.path.exists(config_path):
         logger.info(f"未找到配置文件，正在创建默认的 '{config_path}'...")
         with open(config_path, 'w', encoding='utf-8') as f:
@@ -52,7 +45,6 @@ def load_config():
         logger.info(f"✔ '{config_path}' 创建成功！请打开它，填写你自己的配置后，再重新运行脚本。")
         input("\n按回车键退出...")
         sys.exit(0)
-
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -68,18 +60,34 @@ CONFIG = load_config()
 # "最终圣剑版"系统提示词
 SYSTEM_PROMPT = """
 You are a hyper-precise Ren'Py code modification bot. Your ONLY task is to add the `_()` wrapper to strings that are clearly intended for player translation, following a strict "Whitelist First" logic.
+
 # CORE DIRECTIVE: WHITELIST FIRST, EVERYTHING ELSE IS FORBIDDEN.
 You will ONLY modify a string if it perfectly matches one of the "PATTERNS TO MODIFY". If it does not match, you MUST NOT touch it.
+
 # --- PATTERNS TO MODIFY (The Whitelist) ---
-1.  **Character Definition:** `define e = Character("Eileen")` → `define e = Character(_("Eileen"))`
-2.  **Variable Assignment (Full Sentences Only):** `$ bio = "A full, translatable sentence."` → `$ bio = _("A full, translatable sentence.")`
-3.  **Function Call Argument (Player-Facing Text Only):** `call Emotion(lyd, "groan", "What the fuck?!")` → `call Emotion(lyd, _("groan"), _("What the fuck?!"))`
-4.  **`text` Statement:** `text "Game Unlocked"` → `text _("Game Unlocked")`
-5.  **Complex Formatted String:** `"{font=font.ttf}Earth – Azores Rift{/font}"` → `_("{font=font.ttf}Earth – Azores Rift{/font}")`
+1.  **Character Definition:** A string inside a `Character()` function.
+    -   `define e = Character("Eileen")` → `define e = Character(_("Eileen"))`
+
+2.  **Variable Assignment (Full Sentences Only):** A string on the right side of an `=` that contains spaces and ends with punctuation (like `.`, `?`, `!`).
+    -   `$ bio = "A full, translatable sentence."` → `$ bio = _("A full, translatable sentence.")`
+    -   `$ flag = "visited"` → DO NOT MODIFY (not a full sentence).
+
+3.  **Function Call Argument (Player-Facing Text Only):** A string passed as an argument to a function that is NOT a file path.
+    -   `call Emotion(lyd, "groan", "What the fuck?!")` → `call Emotion(lyd, _("groan"), _("What the fuck?!"))`
+    -   `$ name = renpy.input("Name?")` → `$ name = renpy.input(_("Name?"))`
+
+4.  **`text` Statement:** A string that immediately follows the `text` keyword.
+    -   `text "Game Unlocked"` → `text _("Game Unlocked")`
+
+5.  **Complex Formatted String:** A string containing Ren'Py text tags (`{...}`) AND human-readable text.
+    -   `"{font=font.ttf}Earth – Azores Rift{/font}"` → `_("{font=font.ttf}Earth – Azores Rift{/font}")`
+
 # --- ABSOLUTE PROHIBITIONS (The Blacklist) ---
 - **NO DIALOGUE:** NEVER touch standard dialogue (`character "text"`), narrator text (`"text"`), or menu options (`"Option text":`). The Ren'Py engine handles these.
 - **NO FILE PATHS:** A string is a file path and MUST NOT be modified if it contains `/`, `\\`, or any of these extensions: `.png`, `.jpg`, `.webp`, `.mp3`, `.ogg`, `.ttf`, `.otf`, `.rpy`.
+  - `call Door("images/door.png")` → DO NOT MODIFY.
 - **NO CODE-LIKE STRINGS:** NEVER touch single words (`"word"`), keywords (`"True"`), or strings with programming formats (`"%s"`, `"[variable]"`).
+
 # FINAL COMMANDMENT: WHEN IN DOUBT, DO NOTHING.
 Preserving the original code is your highest priority. Return only the modified code, no explanations.
 """
