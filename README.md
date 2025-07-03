@@ -142,18 +142,19 @@
 > 翻译的灵魂在于统一。    
 > 这个工具能帮你把所有角色名都抓出来，做成一个Excel术语表，确保“艾米丽”不会被翻译成“爱美丽”。
 
-  **运行脚本**:  在项目根目录打开终端。
+**运行脚本**:  在项目根目录打开终端。
     ```bash
     python scripts/Glossary_Forge.py
     ```  
-   它会自动读取 `config.json` 中的游戏路径，运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。  
-   注：同上，依然是可改可删的，依然要确保和config.json配置表在同一目录。      
+它会自动读取 `config.json` 中的游戏路径，运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。    
+   
+注：同上，依然是可改可删的，依然要确保和config.json配置表在同一目录。      
     
-   <div align="center">
-   <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
-   </div>
+<div align="center">
+<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
+</div>
     
-4.  **填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+**填写译名**: 运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
 ---
 
