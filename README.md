@@ -60,7 +60,7 @@
 
 ## 📜 更新日志 (Changelog)
 
-### v5.4 - 配置分离版 (2024-07-04)
+### v5.4 - 配置分离版 (2024-07-03)
 *   **【里程碑式更新】实现配置与代码完全分离！**
     *   所有用户配置项已移至独立的 `config.json` 文件。
     *   **从此，更新核心脚本再也无需重新填写你的API密钥和路径！** 只需保留你自己的 `config.json`，即可无缝使用新版脚本。
@@ -166,7 +166,7 @@
 <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
 </div>
     
-**填写译名**: 它会自动读取 `config.json` 中的游戏路径，运行结束后，会在同目录下生成`glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+**填写译名**: 它会自动读取`config.json`中的游戏路径，运行结束后，会在同目录下生成`glossary.xlsx`。打开它，在`dst`列填上你定好的译名。
 
 ---
 
