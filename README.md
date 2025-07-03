@@ -104,11 +104,13 @@
 
 *   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py`、`Glossary_Forge.py` 脚本放在同一个文件夹里！
 
- 1.  **找到配置文件**: 在 `scripts` 文件夹里找到 `config.json` 文件。  
-    *   如果找不到，直接运行一次 `scripts/Scorpio_Weaver.py`，它会自动为你创建一个（文件名，路径可改，后面也有提示）
- 2.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。  
-    *   **【警告！】** 你**永远**只需要修改 `config.json` 这一个文件来调整配置。脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
- 4.  **修改示例**:
+ 1.  **找到配置文件**: 在 `scripts` 文件夹里找到 `config.json` 文件。    
+
+     *   如果找不到，直接运行一次 `scripts/Scorpio_Weaver.py`，它会自动为你创建一个（文件名，路径可改，后面也有提示）
+ 3.  **填写配置**: 用任何文本编辑器（如记事本、VS Code）打开 `config.json`。
+    
+     *   **【警告！】** 你**永远**只需要修改 `config.json` 这一个文件来调整配置。脚本文件（`.py`）内部的 `default_config` 仅用于首次生成 `config.json`，**修改它不会产生任何效果！**
+ 5.  **修改示例**:
 
         {
           "API_KEY": "sk-xxxxxxxxxxxxxxxxxxx",
