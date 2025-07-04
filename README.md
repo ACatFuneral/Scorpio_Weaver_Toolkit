@@ -158,7 +158,7 @@
 ## 📚 附录：详细操作指南
 
 <details>  
-<summary><strong>⚠️ 附录 A：审查与合并(点击展开)</strong></summary>
+<summary><strong>⚠️ 附录 A：审查与合并，过河拆桥(点击展开)</strong></summary>
 
 > 这是保证质量的关键环节，不可跳过！
 
