@@ -158,7 +158,7 @@
 ## 📚 附录：详细操作指南
 
 <details>  
-<summary><strong>⚠️ 附录 A：审查与合并，过河拆桥(点击展开)</strong></summary>
+<summary><strong>⚠️ 附录 A：审查与合并 - 过河拆桥(点击展开)</strong></summary>
 
 > 这是保证质量的关键环节，不可跳过！
 
@@ -169,7 +169,7 @@
 </details>
 
 <details>  
-<summary><strong>🪄 附录 B：替换字体，施展终极魔法(点击展开)</strong></summary>
+<summary><strong>🪄 附录 B：替换字体 - 施展终极魔法(点击展开)</strong></summary>
 
 > 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
 > **注：如果作者很正常，没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
