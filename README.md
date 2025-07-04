@@ -160,6 +160,51 @@
 
 ## 📚 附录：详细操作指南
 
+</details>
+
+<details>
+<summary><strong>⚠️ 第四步：审查与合并 (点击展开)</strong></summary>
+
+> 这是保证质量的关键环节，不可跳过！
+
+1.  **对比**: 使用 Beyond Compare 等工具，仔细对比原始 `.rpy` 和新生成的 `.new.rpy` 文件。
+2.  **确认**: 确认 AI 的修改无误后，删除原文件，并将 `.new.rpy` 重命名，去掉 `.new` 后缀。
+3.  **清理**: **所有文件都确认完毕后，把没用的 `.new.rpy` 备份全部删除！**
+
+</details>
+
+<details>
+<summary><strong>🪄 第五步：替换字体，施展终极魔法 (点击展开)</strong></summary>
+
+> 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
+> **注：如果作者很正常，没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
+
+1.  **创建目录**: 在 `game/` 目录下，创建 `tl/Chinese/fonts` 文件夹。（`Chinese`可替换为你自己的翻译语言名）
+2.  **放入字体**: 把你准备好的中文字体文件放进去。
+3.  **部署脚本**: 在 `game/` 目录下，新建 `z_font_hack.rpy` 文件，把我们提供的模板代码复制进去并按需修改。
+    ```python
+    # z_font_hack.rpy 示例
+    init -999 python:
+        font_replacement_map = {
+            "DejaVuSans.ttf": "tl/Chinese/fonts/your_font.ttf",
+            "Action_Man.ttf": "tl/Chinese/fonts/your_font.ttf"
+        }
+        config.font_replacement_map.update(font_replacement_map)
+    ```
+
+</details>
+
+<details>
+<summary><strong>⚔️ 第六步：生成翻译 & 总攻 (点击展开)</strong></summary>
+
+一切就绪！现在你可以：
+
+1.  打开 Ren'Py Launcher，点击 **"Generate Translations"** (生成翻译)。
+2.  把生成的待翻译文件 (`game/tl/Chinese` 目录下) 扔进 **Lingua**, **AiNee** 或任何你喜欢的翻译工具。
+3.  **导入你刚刚制作的 `glossary.xlsx` 术语表**，开始你的翻译之旅！
+
+</details>
+
 <details>
 <summary><strong>💥 最终手段：手动正则决战 (点击展开)</strong></summary>
 
@@ -207,51 +252,6 @@ VS Code的搜索结果会像清单一样列出，点击即可跳转。你的任�
     3.  在第一个括号前补上 `_` 即可。**这是程序员的必备神技！**
 
 > **手动模式优势**: 零API成本、无视AI审查、速度极快、精准可控、无惧文件大小！
-
-</details>
-
-<details>
-<summary><strong>⚠️ 第四步：审查与合并 (点击展开)</strong></summary>
-
-> 这是保证质量的关键环节，不可跳过！
-
-1.  **对比**: 使用 Beyond Compare 等工具，仔细对比原始 `.rpy` 和新生成的 `.new.rpy` 文件。
-2.  **确认**: 确认 AI 的修改无误后，删除原文件，并将 `.new.rpy` 重命名，去掉 `.new` 后缀。
-3.  **清理**: **所有文件都确认完毕后，把没用的 `.new.rpy` 备份全部删除！**
-
-</details>
-
-<details>
-<summary><strong>🪄 第五步：替换字体，施展终极魔法 (点击展开)</strong></summary>
-
-> 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
-> **注：如果作者很正常，没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
-
-1.  **创建目录**: 在 `game/` 目录下，创建 `tl/Chinese/fonts` 文件夹。（`Chinese`可替换为你自己的翻译语言名）
-2.  **放入字体**: 把你准备好的中文字体文件放进去。
-3.  **部署脚本**: 在 `game/` 目录下，新建 `z_font_hack.rpy` 文件，把我们提供的模板代码复制进去并按需修改。
-    ```python
-    # z_font_hack.rpy 示例
-    init -999 python:
-        font_replacement_map = {
-            "DejaVuSans.ttf": "tl/Chinese/fonts/your_font.ttf",
-            "Action_Man.ttf": "tl/Chinese/fonts/your_font.ttf"
-        }
-        config.font_replacement_map.update(font_replacement_map)
-    ```
-
-</details>
-
-<details>
-<summary><strong>⚔️ 第六步：生成翻译 & 总攻 (点击展开)</strong></summary>
-
-一切就绪！现在你可以：
-
-1.  打开 Ren'Py Launcher，点击 **"Generate Translations"** (生成翻译)。
-2.  把生成的待翻译文件 (`game/tl/Chinese` 目录下) 扔进 **Lingua**, **AiNee** 或任何你喜欢的翻译工具。
-3.  **导入你刚刚制作的 `glossary.xlsx` 术语表**，开始你的翻译之旅！
-
-</details>
 
 ---
 
