@@ -110,6 +110,7 @@
       ```
     *   根据提示，一步步输入你的 API 信息和游戏路径。完成后，会自动在 `scripts` 文件夹内生成一个 `config.json` 文件。        
 
+
     > **【重要提示！】**  
     > - `config.json` 是你的“遥控器”，**以后所有配置修改，只改这一个文件！**
     > - `config.json` 里的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Games\\MyGame\\game`。
@@ -146,7 +147,9 @@
     <div align="center">
         <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>  
-**填写译名**: 它会智能地决定使用哪个游戏路径（优先 `config.json`），运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+
+**填写译名**: 它会智能地决定使用哪个游戏路径（优先 `config.json`），运行结束后，会在同目录下生成 `glossary.xlsx`。  
+              打开它，在 `dst` 列填上你定好的译名。
 
 #### 3. 后续流程
 *   **审查与合并**：使用对比工具检查 `.new.rpy` 文件，然后“过河拆桥”，把没用的 `.new.rpy` 备份全部删除！
