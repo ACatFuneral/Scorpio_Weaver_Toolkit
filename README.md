@@ -148,7 +148,7 @@
         <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>  
 
-**填写译名**它会智能地决定使用哪个游戏路径（优先 `config.json`），运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+**填写译名：** 它会智能地决定使用哪个游戏路径（优先 `config.json`），运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
 
 #### 3. 后续流程
 *   **审查与合并**：使用对比工具检查 `.new.rpy` 文件，然后“过河拆桥”，把没用的 `.new.rpy` 备份全部删除！
