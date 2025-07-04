@@ -148,20 +148,17 @@
         <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行术语库.jpg" width="550" alt="运行术语表" />
     </div>  
 
-*   **填写译名：** 它会智能地决定使用哪个游戏路径（优先 `config.json`），运行结束后，会在同目录下生成 `glossary.xlsx`。打开它，在 `dst` 列填上你定好的译名。
+*   **填写译名：** 打开生成的 `glossary.xlsx`，在 `dst` 列填上你定好的译名。
 
-#### 3. 后续流程
-*   **审查与合并**：使用对比工具检查 `.new.rpy` 文件，然后“过河拆桥”，把没用的 `.new.rpy` 备份全部删除！
-*   **替换字体**：根据需要，使用 `z_font_hack.rpy` 模板解决字体问题。
-*   **生成翻译 & 总攻**：使用 Ren'Py Launcher 和翻译工具完成最后的翻译工作。
-> 详细步骤请参考下方的 **【附录】** 部分。
+#### 3. 完成收尾工作
+> 脚本处理完成后，剩下的就是收尾工作了。详细的操作指南，如**审查合并、替换字体、生成翻译**等，都已为你整理在下方的 **【附录】** 中，可按需展开查看。  
 
 ---
 
 ## 📚 附录：详细操作指南
 
 <details>  
-<summary><strong>⚠️ 第四步：审查与合并 (点击展开)</strong></summary>
+<summary><strong>⚠️ 附录 A：审查与合并(点击展开)</strong></summary>
 
 > 这是保证质量的关键环节，不可跳过！
 
@@ -172,7 +169,7 @@
 </details>
 
 <details>  
-<summary><strong>🪄 第五步：替换字体，施展终极魔法 (点击展开)</strong></summary>
+<summary><strong>🪄 附录 B：替换字体(施展终极魔法)(点击展开)</strong></summary>
 
 > 有时候会遇到骚作者，在文本里硬编码字体！这时候我们就需要魔法卷轴来帮忙了！    
 > **注：如果作者很正常，没有在文本中内嵌字体的习惯，那么这一步可直接跳过。** 
@@ -193,7 +190,7 @@
 </details>
 
 <details>  
-<summary><strong>⚔️ 第六步：生成翻译 & 总攻 (点击展开)</strong></summary>
+<summary><strong>⚔️ 附录 C：生成翻译 & 总攻(点击展开)</strong></summary>
 
 一切就绪！现在你可以：
 
@@ -204,7 +201,7 @@
 </details>
 
 <details>  
-<summary><strong>💥 最终手段：手动正则决战 (点击展开)</strong></summary>
+<summary><strong>💥 附录 D：最终手段 - 手动正则决战(点击展开)</strong></summary>
 
 > 当遇到AI因“道德审查”罢工，或文件过大导致处理失败时，切换到零成本、高精准的手动模式。
 
