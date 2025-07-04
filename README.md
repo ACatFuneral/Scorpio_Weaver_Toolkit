@@ -92,24 +92,24 @@
 - [ ] 安装一个代码对比工具 (推荐: [Beyond Compare](https://www.scootersoftware.com/), [WinMerge](https://winmerge.org/), 或 [VS Code](https://code.visualstudio.com/))
 
 #### 2. 下载并配置工具包
- 1.  **下载工具包**：前往本项目的 [**Releases 页面**](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest)，下载最新版本的 `.zip` 压缩包。
- 2.  **创建“军火库”**：在你电脑里新建一个**非中文路径**的文件夹，作为你的工具基地，例如 `D:\MyToolkit`。
- 3.  **解压入库**：将下载的 `.zip` 包解压，把里面的 `scripts` 文件夹完整地复制到你的“军火库”中。
-    *   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py`、`Glossary_Forge.py` 脚本放在同一个文件夹里！最终结构应如下：
+ 1.  **下载工具包**：前往本项目的 [**Releases 页面**](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest)，下载最新版本的 `.zip` 压缩包。  
+ 2.  **创建“军火库”**：在你电脑里新建一个**非中文路径**的文件夹，作为你的工具基地，例如 `D:\MyToolkit`。  
+ 3.  **解压入库**：将下载的 `.zip` 包解压，把里面的 `scripts` 文件夹完整地复制到你的“军火库”中。  
+    *   **重要提示**: `config.json` 文件**必须**和 `Scorpio_Weaver.py`、`Glossary_Forge.py` 脚本放在同一个文件夹里！最终结构应如下：  
     ```
     D:\MyToolkit\
     └── scripts\
         ├── Scorpio_Weaver.py
         ├── Glossary_Forge.py
         └── ... (其他文件)
-    ```
+    ```  
  4.**启动配置向导**：  
     *   打开命令行/终端，进入你的“军火库”目录 (例如 `cd D:\MyToolkit`)。
     *   执行以下命令，启动配置向导：
       ```bash
       python scripts/Scorpio_Weaver.py --wizard
-      ```
-* 根据提示，一步步输入你的 API 信息和游戏路径。完成后，会自动在 `scripts` 文件夹内生成一个 `config.json` 文件。
+      ```  
+   * 根据提示，一步步输入你的 API 信息和游戏路径。完成后，会自动在 `scripts` 文件夹内生成一个 `config.json` 文件。
     > **【重要提示！】**  
     > - `config.json` 是你的“遥控器”，**以后所有配置修改，只改这一个文件！**
     > - `config.json` 里的路径分隔符，请使用**双反斜杠 `\\`**，例如 `C:\\Games\\MyGame\\game`。
