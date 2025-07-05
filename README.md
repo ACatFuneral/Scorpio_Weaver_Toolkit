@@ -134,7 +134,7 @@
 *   确认配置无误后，输入 `yes` 开始。
 *   **在运行途中，你可以随时按 `[P]` 暂停，`[S]` 停止，`[I]` 查看信息！**
     <div align="center">
-        <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/运行提取脚本.jpg" width="550" alt="运行脚本" />
+        <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/新运行提取脚本.jpg" width="550" alt="新运行脚本" />
     </div>  
     然后你就可以泡杯茶，抽支烟，看会剧，等待脚本为你自动完成所有繁重的工作吧！    
 
