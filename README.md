@@ -132,13 +132,13 @@
     python scripts/Scorpio_Weaver.py
     ```
 *   确认配置无误后，输入 `yes` 开始。
-*   **在运行途中，你可以随时按 `[P]` 暂停，`[S]` 停止，`[I]` 查看信息！**
+*   **在运行途中，你可以随时按 `[P]` 暂停，`[S]` 停止，`[I]` 查看信息！**  
 
-    <div align="center">
+<div align="center">
         <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/新运行脚本提取.jpg" width="550" alt="新运行脚本" />
-    </div>
+</div>
 
-    然后你就可以泡杯茶，抽支烟，看会剧，等待脚本为你自动完成所有繁重的工作吧！
+   然后你就可以泡杯茶，抽支烟，看会剧，等待脚本为你自动完成所有繁重的工作吧！
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/完成提取脚本1.jpg" width="550" alt="完成提取脚本1" />
@@ -148,8 +148,8 @@
     <img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/新完成提取脚本2.jpg" width="550" alt="新完成提取脚本2" />
 </div>
 
-**注意：** 这一步不光要求速度，道德审核也很严重。有报错是正常的，毕竟API有波动。  
-如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
+   **注意：** 这一步不光要求速度，道德审核也很严重。有报错是正常的，毕竟API有波动。  
+   如果报错超多，或遇到道德审核问题，别着急，请直接跳到下面的 **【最终手段：手动正则决战】**。
 
 #### 2. 铸造术语，灵魂熔炉启动！(`Glossary_Forge.py`)  
 > 翻译的灵魂在于统一。
