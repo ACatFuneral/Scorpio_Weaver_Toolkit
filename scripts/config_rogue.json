@@ -1,0 +1,10 @@
+{
+  "GAME_DIRECTORY": "G:\\你的游戏路径\\game",
+  "OVERWRITE_FILES": false,
+  "EXCLUDE_FILES": [
+    "gui.rpy",
+    "options.rpy",
+    "screens.rpy"
+  ],
+  "CONCURRENT_LIMIT": 8
+}
