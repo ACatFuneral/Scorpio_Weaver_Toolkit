@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # ==============================================================================
-#  Scorpio Weaver Toolkit - Rogue Edition v2.6 (Readable Soul Edition)
+#  Scorpio Weaver Toolkit - Rogue Edition v3.1 (Final Readable Soul)
 #  作者：猫之送葬者 & Gemini
 #  设计哲学：基于猫之送葬者的“人机结合，天下无敌”理念。
-#  此版本为极速、零成本的正则自动化版，仅处理绝对安全的文本模式。
-#  高风险文本请使用README中描述的手动正则模式，以实现完美的人机协同。
+#  此版本为极速、零成本的正则自动化版，仅处理Ren'Py SDK无法触及的文本。
 # ==============================================================================
 import os
 import sys
@@ -24,11 +23,11 @@ import msvcrt  # Windows下的键盘输入检测
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
 
-# --- 精密正则引擎核心 v2.5 ---
+# --- 【幽灵战机 v3.1 终极可读版】精密正则引擎核心 ---
 SAFE_REGEX_PATTERNS = [
     ("Character定义", re.compile(r'(Character\s*\(\s*)(?!_\()("[^"]*")((?:,.*?)?\s*\))')),
-    ("renpy.input提示", re.compile(r'(renpy\.input\s*\(\s*)(?!_\()(".*?")((?:,.*?)?\s*\))')),
-    ("show/text语句", re.compile(r'((?:show\s+)?text\s+)(?!_)(".*?")(\s*$)'))
+    ("show/text语句", re.compile(r'((?:show\s+)?text\s+)(?!_)(".*?")((?:[ \t].*)?$)')),
+    ("renpy.input提示", re.compile(r'(renpy\.input\s*\(\s*)(?!_\()(".*?")((?:,.*?)?\s*\))'))
 ]
 
 def process_file_with_regex(original_code):
@@ -143,7 +142,6 @@ def validate_config(config):
         input("\n按回车键退出...")
         sys.exit(1)
 
-# 【可读性终极修复】恢复了 TimeStats 类的标准写法
 class TimeStats:
     def __init__(self):
         self.start_time = None
@@ -183,7 +181,6 @@ class TimeStats:
             self.completed_files += 1
 time_stats = TimeStats()
 
-# 【可读性终极修复】恢复了 keyboard_listener 的标准 if/else 写法
 def keyboard_listener(pbar):
     print("\n⌨️  控制说明: 按 [P]暂停/恢复, [S]停止, [I]查看信息")
     while not STOP_EVENT.is_set():
@@ -214,20 +211,30 @@ def keyboard_listener(pbar):
 def process_file(file_path, stats, pbar, lock):
     file_name = os.path.basename(file_path)
     try:
-        if STOP_EVENT.is_set(): return
+        if STOP_EVENT.is_set():
+            return
         PAUSE_EVENT.wait()
         if file_name in CONFIG['EXCLUDE_FILES']:
-            with lock: stats['skipped_exclude'].append(file_name); return
-        with open(file_path, 'r', encoding='utf-8') as f: original_code = f.read()
+            with lock:
+                stats['skipped_exclude'].append(file_name)
+            return
+        with open(file_path, 'r', encoding='utf-8') as f:
+            original_code = f.read()
         if not original_code.strip():
-            with lock: stats['skipped_empty'].append(file_name); return
+            with lock:
+                stats['skipped_empty'].append(file_name)
+            return
         modified_code, changes_made = process_file_with_regex(original_code)
-        if STOP_EVENT.is_set(): return
+        if STOP_EVENT.is_set():
+            return
         PAUSE_EVENT.wait()
         if changes_made == 0:
-            with lock: stats['skipped_nochange'].append(file_name); return
+            with lock:
+                stats['skipped_nochange'].append(file_name)
+            return
         temp_file_path = f"{file_path}.{uuid.uuid4().hex}.tmp"
-        with open(temp_file_path, 'w', encoding='utf-8') as f: f.write(modified_code)
+        with open(temp_file_path, 'w', encoding='utf-8') as f:
+            f.write(modified_code)
         output_path = file_path if CONFIG['OVERWRITE_FILES'] else f"{file_path}.new.rpy"
         os.replace(temp_file_path, output_path)
         with lock:
@@ -236,7 +243,8 @@ def process_file(file_path, stats, pbar, lock):
             pbar.write(f"✅ {file_name} (添加了 {changes_made} 个标记)")
     except Exception as e:
         pbar.write(f"💥 处理 '{file_name}' 时发生严重错误: {type(e).__name__} - {e}")
-        with lock: stats['error_files'].add(file_name)
+        with lock:
+            stats['error_files'].add(file_name)
     finally:
         time_stats.file_completed()
         pbar.update(1)
@@ -246,24 +254,29 @@ def print_rogue_stats(stats, total_time):
     logger.info("\n\n" + "📊"*20 + " 游侠版任务报告 " + "📊"*20)
     actual_work_time = time_stats.get_elapsed_time()
     logger.info(f"⏱️  总耗时: {total_time:.2f} 秒 (实际工作: {actual_work_time:.2f}s, 暂停: {time_stats.total_pause_time:.2f}s)")
-    if actual_work_time > 0: logger.info(f"🚀 实际处理速度: {time_stats.completed_files / actual_work_time:.2f} 文件/秒")
+    if actual_work_time > 0:
+        logger.info(f"🚀 实际处理速度: {time_stats.completed_files / actual_work_time:.2f} 文件/秒")
     logger.info("-" * 60)
     logger.info(f"✅ 成功修改: {len(stats['success_files'])} 个文件")
     logger.info(f"🔖 添加标记总数: {stats['total_tags_added']} 个")
     logger.info(f"❌ 处理失败: {len(stats['error_files'])} 个文件")
     total_skipped = len(stats['skipped_exclude']) + len(stats['skipped_nochange']) + len(stats['skipped_empty'])
     logger.info(f"⏭️  跳过处理: {total_skipped} 个文件 (无需修改: {len(stats['skipped_nochange'])}, 排除: {len(stats['skipped_exclude'])}, 空文件: {len(stats['skipped_empty'])})")
-    if stats['error_files']: logger.error(f"\n❌ 失败文件列表: {', '.join(sorted(list(stats['error_files'])))}")
+    if stats['error_files']:
+        logger.error(f"\n❌ 失败文件列表: {', '.join(sorted(list(stats['error_files'])))}")
 
 def main():
-    if '--wizard' in sys.argv: config_wizard(); return
-    if not tqdm_module: return
+    if '--wizard' in sys.argv:
+        config_wizard()
+        return
+    if not tqdm_module:
+        return
     
     global CONFIG
     CONFIG = load_config()
     validate_config(CONFIG)
 
-    logger.info("\n" + "⚔️ "*30 + f"\n  Scorpio Weaver - Rogue Edition v2.6  \n" + "⚔️ "*30)
+    logger.info("\n" + "⚔️ "*30 + f"\n  Scorpio Weaver - Rogue Edition v3.1  \n" + "⚔️ "*30)
     logger.info(f"🛡️  模式: 精密正则打击 (零成本，极速)")
     logger.info(f"📁 游戏路径: {CONFIG['GAME_DIRECTORY']}")
     logger.info(f"⚡ 并发数: {CONFIG['CONCURRENT_LIMIT']}")
@@ -271,17 +284,26 @@ def main():
     logger.info("⚔️ "*60 + "\n")
     
     user_input = input("🔍 请确认以上配置。输入 'yes' 开始执行，或 'wizard' 重新配置: ").lower()
-    if user_input == 'wizard': config_wizard(); print("\n配置已更新，请重新运行脚本以应用新配置。"); return
-    if user_input != 'yes': logger.info("❌ 操作已取消。"); return
+    if user_input == 'wizard':
+        config_wizard()
+        print("\n配置已更新，请重新运行脚本以应用新配置。")
+        return
+    if user_input != 'yes':
+        logger.info("❌ 操作已取消。")
+        return
 
     rpy_files = [os.path.join(root, file) for root, _, files in os.walk(CONFIG['GAME_DIRECTORY']) for file in files if file.endswith('.rpy')]
-    if not rpy_files: logger.warning("⚠️  在指定目录下未找到任何 .rpy 文件。"); input("按回车键退出..."); return
+    if not rpy_files:
+        logger.warning("⚠️  在指定目录下未找到任何 .rpy 文件。")
+        input("按回车键退出...")
+        return
 
     stats = {'success_files': set(), 'error_files': set(), 'skipped_exclude': [], 'skipped_nochange': [], 'skipped_empty': [], 'total_tags_added': 0}
     lock = threading.Lock()
     
     logger.info(f"\n📋 扫描完成！发现 {len(rpy_files)} 个 .rpy 文件，开始处理...")
-    time_stats.start(); start_time = time.time()
+    time_stats.start()
+    start_time = time.time()
 
     with tqdm_module.tqdm(total=len(rpy_files), unit="file", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]", ncols=120) as pbar:
         keyboard_thread = threading.Thread(target=keyboard_listener, args=(pbar,), daemon=True)
@@ -292,14 +314,19 @@ def main():
             for future in futures:
                 try: 
                     if STOP_EVENT.is_set():
-                        for f in futures: f.cancel(); break
+                        for f in futures:
+                            f.cancel()
+                        break
                     future.result()
-                except Exception: pass
+                except Exception:
+                    pass
         
-        if STOP_EVENT.is_set(): pbar.write("\n🛑 处理已被用户停止")
+        if STOP_EVENT.is_set():
+            pbar.write("\n🛑 处理已被用户停止")
 
     total_time = time.time() - start_time
-    STOP_EVENT.set(); PAUSE_EVENT.set()
+    STOP_EVENT.set()
+    PAUSE_EVENT.set()
     print_rogue_stats(stats, total_time)
     
     logger.info("\n" + "🎯"*30)
