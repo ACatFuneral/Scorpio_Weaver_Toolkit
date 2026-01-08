@@ -1,49 +1,48 @@
-# 🐱 OldCat Ren'Py Translator Tool (老猫神器)
+<div align="center">
 
-[![Latest Release](https://img.shields.io/github/v/release/ACatFuneral/Scorpio_Weaver_Toolkit?label=release)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/blob/main/LICENSE) [![Platform](https://img.shields.io/badge/platform-Windows-blue)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases)
+# 🐱 OldCat Ren'Py Translator Tool
+### —— 老猫神器 v8.1 (战果统计版) ——
 
-> **专为 Ren'Py 汉化者打造的终极提取/翻译辅助工具。**
-> *无需 Python 基础 · 图形化界面 · 一键提取 · 智能去重 · 战果统计*
+[![Latest Release](https://img.shields.io/github/v/release/ACatFuneral/Scorpio_Weaver_Toolkit?label=Version&style=for-the-badge&color=orange)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases)
 
-![软件界面]
+**专为 Ren'Py 汉化者打造的终极提取/翻译辅助工具**  
+*无需 Python 基础 · 图形化界面 · 一键提取 · 智能去重 · 战果统计*
 
-<img width="686" height="672" alt="老猫" src="https://github.com/user-attachments/assets/2e8612bc-91ff-4b43-ad66-fe99e94bd306" />
+<br>
 
+<img width="686" alt="老猫神器界面" src="https://github.com/user-attachments/assets/2e8612bc-91ff-4b43-ad66-fe99e94bd306" />
+
+<br>
+
+</div>
+
+---
 
 ## ✨ 为什么选择老猫神器？
 
 以前汉化 Ren'Py 游戏，你需要：
-1. 学 Python 跑脚本。
-2. 手动改复杂的 `config.json` 配置文件。
-3. 忍受黑框框命令行的折磨。
-4. 面对一堆提取出来的乱七八糟文件，不知道哪些该翻。
+1. 😫 苦学 Python 跑脚本
+2. 🤯 手改复杂的 `config.json`
+3. 😵‍💫 忍受黑框框命令行的折磨
+4. 🗑️ 面对一堆乱七八糟的提取文件
 
-**现在，你只需要：**
-**双击 exe，点一下按钮。** 完事！🚀
+**现在，你只需要：**  
+**🔥 双击 exe -> 点一下按钮 -> 完事！** 
 
-## 🔥 核心功能 (v8.1)
+---
 
-### 🖥️ 1. 图形化界面 (GUI)
-告别命令行！清晰的界面，简单的选项。
-- **傻瓜式操作**：浏览选择游戏目录 -> 设置语言 -> 点击开始。
-- **实时日志**：运行过程全程可视，不再“摸黑干活”。
+## 🚀 核心功能 (v8.1)
 
-### 📊 2. 战果统计系统 (NEW!)
-提取完成后，自动弹出详细的统计报告：
-- **扫描文件数**：扫了多少个文件？
-- **人名/术语**：提取了多少个角色名？（自动生成 `names.xlsx`）
-- **对话/UI**：提取了多少句对白？（自动生成 `others.xlsx`）
-- **精准分类**：让你对汉化工作量心中有数。
-
-### 🧹 3. 智能过滤 & 去重
-- **垃圾过滤**：自动剔除代码、变量名、文件路径等无需翻译的“垃圾文本”。
-- **智能去重**：相同的文本只提取一次，节省 50% 以上的翻译成本。
-- **增量更新**：如果 `tl` 文件夹里已经翻译过一部分，工具会自动跳过，**只提取新增文本**！
-
-### 🔒 4. 独家黑科技
-- **Tag 保护 (Emoji 映射)**：防止机翻软件破坏 `{color=#f00}` 这种代码标签。
-- **疯狗模式**：深度扫描 Python 代码块中的硬编码文本（慎用，威力巨大）。
-- **AI 辅助**：一键生成 `AI_Prompt_Names.txt`，直接喂给 AI 统一角色译名。
+| 功能模块 | 详细说明 |
+| :--- | :--- |
+| **🖥️ 图形界面 (GUI)** | **告别代码！** 清晰的界面，简单的选项。浏览目录 -> 选语言 -> 开始，小白也能秒上手。 |
+| **📊 战果统计 (NEW)** | **心中有数！** 提取完成后自动弹窗，显示扫描文件数、人名数、对话数，工作量一目了然。 |
+| **🧹 智能过滤** | **去伪存真！** 自动剔除代码、变量名、路径等垃圾文本，只提取人话。 |
+| **🔄 增量更新** | **拒绝重复！** 如果 `tl` 文件夹已有翻译，工具会自动跳过，**只提取新增文本**。 |
+| **🔒 Tag 保护** | **防止炸档！** 独家 Emoji 映射技术，防止翻译软件破坏 `{color=#f00}` 等代码标签。 |
+| **🤖 AI 辅助** | **一键生成！** 自动输出 `AI_Prompt_Names.txt`，直接喂给 AI 统一角色译名。 |
 
 ---
 
@@ -51,10 +50,9 @@
 
 ### 方式一：直接下载 (推荐小白)
 1. 前往 [**Releases 页面**](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest) 下载最新的 **`老猫神器 v8.1.zip`**。
-2. 解压文件夹。
-3. 双击运行 **`OldCat_Translator.exe`**。
-4. 选择游戏 `game` 目录，点击 **“开始提取”**。
-5. 去 `translate_output` 文件夹收菜！
+2. 解压，双击运行 **`OldCat_Translator.exe`**。
+3. 选好游戏 `game` 目录，点击 **“开始提取”**。
+4. 去 `translate_output` 文件夹收菜！
 
 ### 方式二：源码运行 (推荐开发者)
 如果你想自己修改代码或在 Mac/Linux 上运行：
@@ -79,9 +77,9 @@ python OldCat_GUI.py
 | :--- | :--- |
 | **`1_Excels/names.xlsx`** | **人名表**。这里全是角色名字，建议先翻这个，统一称呼。 |
 | **`1_Excels/others.xlsx`** | **对话表**。游戏的主要剧情都在这里，直接拿去喂 AI 或手翻。 |
-| **`2_RPY_Files/*.rpy`** | **生成的翻译文件**。翻译完 Excel 后，可以用工具把译文回填到这里（如果你会写回填脚本的话），或者直接手动参考。 |
+| **`2_RPY_Files/*.rpy`** | **生成的翻译文件**。可直接翻译替换回游戏。 |
 | **`AI_Prompt_Names.txt`** | **AI 提示词**。把这个文件内容发给 ChatGPT/Claude，让它帮你生成人名翻译表。 |
-| **`Duplicate_Report.txt`** | **统计报告**。看看哪些词出现频率最高，方便优先汉化。 |
+| **`Duplicate_Report.txt`** | **统计报告**。看看哪些词出现频率最高。 |
 
 ---
 
