@@ -1,7 +1,10 @@
+</div>
 <div align="center">
+<!-- 在这里放一个你酷炫的 Logo -->
+<img src="https://raw.githubusercontent.com/ACatFuneral/Scorpio_Weaver_Toolkit/main/images/Scorpio.png" width="400" alt="Project Logo" />
 
 # 🐱 OldCat Ren'Py Translator Tool
-### —— 老猫神器 v8.1 (战果统计版) ——
+### —— 老猫神器 ——
 
 [![Latest Release](https://img.shields.io/github/v/release/ACatFuneral/Scorpio_Weaver_Toolkit?label=Version&style=for-the-badge&color=orange)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/releases/latest)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/blob/main/LICENSE)
@@ -22,11 +25,22 @@
 
 ## ✨ 为什么选择老猫神器？
 
-以前汉化 Ren'Py 游戏，你需要：
-1. 😫 苦学 Python 跑脚本
-2. 🤯 手改复杂的 `config.json`
-3. 😵‍💫 忍受黑框框命令行的折磨
-4. 🗑️ 面对一堆乱七八糟的提取文件
+**核心痛点：官方工具提取不全！**
+
+你是否遇到过这种情况：明明用 Ren'Py 官方 SDK 提取了翻译文件，进游戏一看，依然有大量**未汉化的英文**？
+这是因为许多游戏作者代码写得比较“骚”，喜欢把文本**硬编码 (Hardcode)** 在 Python 逻辑、动态变量或复杂的屏幕 (Screen) 代码里，官方工具根本识别不了！
+
+**老猫神器的真正意义在于：**
+它不仅仅是一个提取工具，它是**官方 SDK 的强力补充**，专为解决“漏网之鱼”而生。
+
+1.  🎯 **专治“漏网之鱼”**：
+    官方工具提不到的**硬编码文本、Python 里的字符串**，老猫神器用“疯狗模式”帮你全挖出来！
+2.  🛠️ **自动化预处理**：
+    还在手动给成千上万行代码添加 `_()` 标记？本工具一站式搞定汉化前的所有脏活累活。
+3.  📝 **术语统一**：
+    自动把所有角色名提取到 `names.xlsx`，确保你不会把“Alice”一会翻成“爱丽丝”，一会翻成“阿李嫂”。
+4.  ⚡ **解放生产力**：
+    你只管翻译，剩下的提取、去重、封装、打包，全部交给老猫！
 
 **现在，你只需要：**  
 **🔥 双击 exe -> 点一下按钮 -> 完事！** 
