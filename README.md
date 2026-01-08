@@ -6,6 +6,7 @@
 > *无需 Python 基础 · 图形化界面 · 一键提取 · 智能去重 · 战果统计*
 
 ![软件界面]
+
 <img width="686" height="672" alt="老猫" src="https://github.com/user-attachments/assets/2e8612bc-91ff-4b43-ad66-fe99e94bd306" />
 
 
