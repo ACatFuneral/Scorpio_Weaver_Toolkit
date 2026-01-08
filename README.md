@@ -5,6 +5,10 @@
 > **专为 Ren'Py 汉化者打造的终极提取/翻译辅助工具。**
 > *无需 Python 基础 · 图形化界面 · 一键提取 · 智能去重 · 战果统计*
 
+![软件界面]
+<img width="686" height="672" alt="老猫" src="https://github.com/user-attachments/assets/2e8612bc-91ff-4b43-ad66-fe99e94bd306" />
+
+
 ## ✨ 为什么选择老猫神器？
 
 以前汉化 Ren'Py 游戏，你需要：
