@@ -67,6 +67,7 @@ pip install pandas openpyxl pyyaml
 # 3. 运行脚本
 python OldCat_GUI.py
 
+```
 ---
 
 ## 📂 输出文件说明
@@ -99,6 +100,6 @@ python OldCat_GUI.py
 ## 🤝 贡献与反馈
 
 本项目由 **OldCat** & **Scorpio Weaver** 联合打造。
-如果你发现了 Bug，或者有好的建议，欢迎提 [Issues](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/issues) 或 Pull Request！
+如果你发现了 Bug，或者有好的建议，欢迎提 [议题](https://github.com/ACatFuneral/Scorpio_Weaver_Toolkit/issues) 或 Pull Request！
 
 **如果不麻烦的话，给个 ⭐ Star 支持一下吧！**
