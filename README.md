@@ -15,7 +15,9 @@
 
 <br>
 
-<img width="686" alt="哈基猫神器界面" src="https://github.com/user-attachments/assets/f3171811-c5dc-4c96-a347-92016d8e56f5" />
+
+<img width="686" alt="哈基猫界面" src="https://github.com/user-attachments/assets/660b0a89-21a2-4d2b-86bc-513c38549aec" />
+
 
 <br>
 
